@@ -47,5 +47,9 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+  ENV['ember-component-css'] = {
+    option: 'value'
+  }
+
   return ENV;
 };

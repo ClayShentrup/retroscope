@@ -10,6 +10,11 @@ class WhiteboardItemsController < ApplicationController
     respond_with(whiteboard_item)
   end
 
+  def destroy
+    whiteboard_item = WhiteboardItem.destroy(params.require(:id))
+    respond_with(whiteboard_item)
+  end
+
   private
 
   def whiteboard_item_params

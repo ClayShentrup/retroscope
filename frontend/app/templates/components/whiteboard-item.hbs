@@ -1,1 +1,5 @@
-<li>{{item.content}}</li>
+<li class="card list-inline-item m-2">
+  <div class="card-body">
+    {{item.content}} <a {{action 'deleteWhiteboardItem' item}} href>X</a>
+  </div>
+</li>
