@@ -1,33 +1,21 @@
 source('https://rubygems.org')
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem('rails')
-# Use postgresql as the database for Active Record
-gem('pg')
-# Use Puma as the app server
-gem('puma')
-
-gem('ember-cli-rails')
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-
+gem('rails') # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem('pg') # Use postgresql as the database for Active Record
+gem('puma') # Use Puma as the app server
+# ActiveModel::Serializer implementation and Rails hooks
+gem('active_model_serializers')
+gem('responders') # A set of Rails responders to dry up your application
+gem('ember-cli-rails') # Unify your EmberCLI and Rails Workflows
 
 group :development do
   gem('listen')
 end
+
+require('pry-rails')
+require('pry-byebug')

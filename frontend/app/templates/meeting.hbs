@@ -1,0 +1,7 @@
+<h1 {{action "createThing"}}>Meeting</h1>
+
+<ul>
+  {{#each model as |whiteboard_item| }}
+    {{whiteboard-item msg="hello" item=whiteboard_item }}
+  {{/each}}
+</ul>

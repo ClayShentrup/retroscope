@@ -1,0 +1,2 @@
+class WhiteboardItem < ApplicationRecord
+end
