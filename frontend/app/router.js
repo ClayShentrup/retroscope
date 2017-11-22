@@ -7,7 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('meeting');
+  this.route(
+    'active-meeting',
+    { path: 'teams/:team_id/active-meeting' }
+  )
 });
 
 export default Router;

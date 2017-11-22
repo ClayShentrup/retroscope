@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111225036) do
+ActiveRecord::Schema.define(version: 20171119230654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "whiteboard_items", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "emotion", null: false
+    t.string "meeting_type"
+    t.bigint "meeting_id"
+    t.index ["meeting_type", "meeting_id"], name: "index_whiteboard_items_on_meeting_type_and_meeting_id"
   end
 
 end

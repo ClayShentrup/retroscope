@@ -1,0 +1,45 @@
+<h2>Meeting</h2>
+
+<div class="whiteboard row">
+  <div class="happy col">
+    <p class="text-center"><h2>:)</h2></p>
+    <ul class="list-inline">
+      {{#each model.happyActiveWhiteboardItems as |whiteboard_item| }}
+        {{whiteboard-item item=whiteboard_item }}
+      {{/each}}
+    </ul>
+
+    <form>
+      {{input value=newHappyWhiteboardItem type="text" placeholder="Describe your item" }}
+      <button {{ action 'createHappyWhiteboardItem' model }}/>
+    </form>
+  </div>
+
+  <div class="meh col">
+    <p class="text-center"><h2>:|</h2></p>
+    <ul class="list-inline">
+      {{#each model.mehActiveWhiteboardItems as |whiteboard_item| }}
+        {{whiteboard-item item=whiteboard_item }}
+      {{/each}}
+    </ul>
+
+    <form>
+      {{input value=newMehWhiteboardItem type="text" placeholder="Describe your item"}}
+      <button {{ action 'createMehWhiteboardItem' model }}/>
+    </form>
+  </div>
+
+  <div class="sad col">
+    <p class="text-center"><h2>:(</h2></p>
+    <ul class="list-inline">
+      {{#each model.sadActiveWhiteboardItems as |whiteboard_item| }}
+        {{whiteboard-item item=whiteboard_item }}
+      {{/each}}
+    </ul>
+
+    <form>
+      {{input value=newSadWhiteboardItem type="text" placeholder="Describe your item"}}
+      <button {{ action 'createSadWhiteboardItem' model }}/>
+    </form>
+  </div>
+</div>

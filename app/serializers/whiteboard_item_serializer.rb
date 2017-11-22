@@ -1,3 +1,5 @@
 class WhiteboardItemSerializer < ActiveModel::Serializer
-  attributes :id, :content
+  attributes(:content, :emotion, :id)
+
+  belongs_to(:meeting, polymoprhic: true)
 end
