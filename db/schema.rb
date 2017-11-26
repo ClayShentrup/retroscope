@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126194246) do
+ActiveRecord::Schema.define(version: 20171127004728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20171126194246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["meeting_type", "meeting_id"], name: "index_action_items_on_meeting_type_and_meeting_id"
+  end
+
+  create_table "archived_meetings", force: :cascade do |t|
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_archived_meetings_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -66,4 +73,5 @@ ActiveRecord::Schema.define(version: 20171126194246) do
     t.index ["meeting_type", "meeting_id"], name: "index_whiteboard_items_on_meeting_type_and_meeting_id"
   end
 
+  add_foreign_key "archived_meetings", "teams"
 end

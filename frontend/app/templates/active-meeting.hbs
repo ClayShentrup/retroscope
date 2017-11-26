@@ -1,46 +1,52 @@
-<h2>Meeting</h2>
+<h2>Team: {{model.name}}</h2>
+
+<button {{ action 'archiveActiveMeeting' model }}>Archive</button>
 
 <div class="whiteboard row">
   <div class="happy col">
     <p class="text-center"><h2>:)</h2></p>
-    <ul class="list-inline">
-      {{#each model.happyActiveWhiteboardItems as |whiteboardItem| }}
-        {{whiteboard-item item=whiteboardItem }}
-      {{/each}}
-    </ul>
 
     <form>
       {{input value=newHappyWhiteboardItem type="text" placeholder="I'm glad that..." }}
       <button {{ action 'createHappyWhiteboardItem' model }}/>
     </form>
+
+    <ul class="list-inline">
+      {{#each model.happyActiveWhiteboardItems as |whiteboardItem| }}
+        {{whiteboard-item item=whiteboardItem }}
+      {{/each}}
+    </ul>
   </div>
 
   <div class="meh col">
     <p class="text-center"><h2>:|</h2></p>
-    <ul class="list-inline">
-      {{#each model.mehActiveWhiteboardItems as |whiteboardItem| }}
-        {{whiteboard-item item=whiteboardItem }}
-      {{/each}}
-    </ul>
 
     <form>
       {{input value=newMehWhiteboardItem type="text" placeholder="I'm wondering about..."}}
       <button {{ action 'createMehWhiteboardItem' model }}/>
     </form>
+
+    <ul class="list-inline">
+      {{#each model.mehActiveWhiteboardItems as |whiteboardItem| }}
+        {{whiteboard-item item=whiteboardItem }}
+      {{/each}}
+    </ul>
   </div>
 
   <div class="sad col">
     <p class="text-center"><h2>:(</h2></p>
+
+    <form>
+      {{input value=newSadWhiteboardItem type="text" placeholder="It wasn't so great that..."}}
+      <button {{ action 'createSadWhiteboardItem' model }}/>
+    </form>
+
     <ul class="list-inline">
       {{#each model.sadActiveWhiteboardItems as |whiteboardItem| }}
         {{whiteboard-item item=whiteboardItem }}
       {{/each}}
     </ul>
 
-    <form>
-      {{input value=newSadWhiteboardItem type="text" placeholder="It wasn't so great that..."}}
-      <button {{ action 'createSadWhiteboardItem' model }}/>
-    </form>
   </div>
 </div>
 
@@ -54,6 +60,3 @@
   {{input value=newActionItem type="text" placeholder="Add an action item"}}
   <button {{ action 'createActionItem' model }}/>
 </form>
---
-
-

@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.store.findAll('team');
+    return this.store.findAll('team', { include: 'archived_meetings.created-at' },);
   },
 });

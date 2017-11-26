@@ -2,6 +2,10 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   actions: {
+    archiveActiveMeeting(team) {
+      team.archiveActiveMeeting()
+    },
+
     createHappyWhiteboardItem(team) {
       this.store.createRecord(
         'whiteboard_item',

@@ -3,6 +3,15 @@
     <li class="list-group-item">
       {{team.name}}
       {{#link-to 'active-meeting' team.id }}Active Meeting{{/link-to}}
+
+      <ul class="list-group">
+        {{#each team.archivedMeetings as |archivedMeeting| }}
+          <li class="list-group-item">
+            {{archivedMeeting.createdAt}}
+            Link to Archived Meeting View Here
+          </li>
+        {{/each}}
+      </ul>
     </li>
   {{/each}}
 </ul>
