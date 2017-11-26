@@ -1,4 +1,4 @@
-class WhiteboardItemsController < ApplicationController
+class WhiteboardItemsController < ApiController
   def create
     whiteboard_item = WhiteboardItem.create(whiteboard_item_params)
     respond_with(whiteboard_item)
@@ -7,6 +7,15 @@ class WhiteboardItemsController < ApplicationController
   def destroy
     whiteboard_item = WhiteboardItem.destroy(params.require(:id))
     respond_with(whiteboard_item)
+  end
+
+  def index
+    whiteboard_items = WhiteboardItem.all
+    respond_with(whiteboard_items)
+  end
+
+  def show
+    respond_with(WhiteboardItem.find(params.require(:id)))
   end
 
   private

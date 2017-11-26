@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  actionItems: DS.hasMany('action-item'),
   happyActiveWhiteboardItems: Ember.computed.filterBy(
     'whiteboardItems',
     'emotion',
@@ -18,4 +19,5 @@ export default DS.Model.extend({
     'sad',
   ),
   whiteboardItems: DS.hasMany('whiteboard-item'),
+  name: DS.attr()
 });

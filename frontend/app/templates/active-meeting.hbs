@@ -4,13 +4,13 @@
   <div class="happy col">
     <p class="text-center"><h2>:)</h2></p>
     <ul class="list-inline">
-      {{#each model.happyActiveWhiteboardItems as |whiteboard_item| }}
-        {{whiteboard-item item=whiteboard_item }}
+      {{#each model.happyActiveWhiteboardItems as |whiteboardItem| }}
+        {{whiteboard-item item=whiteboardItem }}
       {{/each}}
     </ul>
 
     <form>
-      {{input value=newHappyWhiteboardItem type="text" placeholder="Describe your item" }}
+      {{input value=newHappyWhiteboardItem type="text" placeholder="I'm glad that..." }}
       <button {{ action 'createHappyWhiteboardItem' model }}/>
     </form>
   </div>
@@ -18,13 +18,13 @@
   <div class="meh col">
     <p class="text-center"><h2>:|</h2></p>
     <ul class="list-inline">
-      {{#each model.mehActiveWhiteboardItems as |whiteboard_item| }}
-        {{whiteboard-item item=whiteboard_item }}
+      {{#each model.mehActiveWhiteboardItems as |whiteboardItem| }}
+        {{whiteboard-item item=whiteboardItem }}
       {{/each}}
     </ul>
 
     <form>
-      {{input value=newMehWhiteboardItem type="text" placeholder="Describe your item"}}
+      {{input value=newMehWhiteboardItem type="text" placeholder="I'm wondering about..."}}
       <button {{ action 'createMehWhiteboardItem' model }}/>
     </form>
   </div>
@@ -32,14 +32,28 @@
   <div class="sad col">
     <p class="text-center"><h2>:(</h2></p>
     <ul class="list-inline">
-      {{#each model.sadActiveWhiteboardItems as |whiteboard_item| }}
-        {{whiteboard-item item=whiteboard_item }}
+      {{#each model.sadActiveWhiteboardItems as |whiteboardItem| }}
+        {{whiteboard-item item=whiteboardItem }}
       {{/each}}
     </ul>
 
     <form>
-      {{input value=newSadWhiteboardItem type="text" placeholder="Describe your item"}}
+      {{input value=newSadWhiteboardItem type="text" placeholder="It wasn't so great that..."}}
       <button {{ action 'createSadWhiteboardItem' model }}/>
     </form>
   </div>
 </div>
+
+<ul class="list-inline">
+  {{#each model.actionItems as |actionItem| }}
+    {{ action-item actionItem=actionItem }}
+  {{/each}}
+</ul>
+
+<form>
+  {{input value=newActionItem type="text" placeholder="Add an action item"}}
+  <button {{ action 'createActionItem' model }}/>
+</form>
+--
+
+

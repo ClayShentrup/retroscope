@@ -1,0 +1,6 @@
+<li class="card list-inline-item m-2">
+  <div class="card-body">
+    {{input type="checkbox" name="done" checked=actionItem.done change=(action "toggleDone")}}
+    {{actionItem.content}}
+  </div>
+</li>

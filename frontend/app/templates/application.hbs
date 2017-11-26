@@ -1,3 +1,20 @@
+{{#bs-dropdown as |dd|}}
+  {{#dd.toggle}}Menu <span class="caret"></span>{{/dd.toggle}}
+  {{#dd.menu as |ddm|}}
+    {{#ddm.item}}
+      {{#ddm.link-to "teams"}}Your Teams{{/ddm.link-to}}
+    {{/ddm.item}}
+  {{/dd.menu}}
+{{/bs-dropdown}}
+
 <h1>Retroscope</h1>
+
+<div class="menu">
+  {{#if session.isAuthenticated }}
+    <a {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
+</div>
 
 {{outlet}}

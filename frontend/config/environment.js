@@ -7,6 +7,9 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'connect-src': "*"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,6 +24,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'connect-src': "*"
     }
   };
 
@@ -50,6 +57,12 @@ module.exports = function(environment) {
   ENV['ember-component-css'] = {
     option: 'value'
   }
+
+  // ENV['ember-simple-auth'] = {
+  //   routeAfterAuthentication: 'teams',
+  //   routeIfAlreadyAuthenticated: 'teams',
+  // }
+
 
   return ENV;
 };

@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  mount_ember_app(:frontend, to: '/')
+  devise_for(:users, controllers: { sessions: 'users/sessions' })
 
-  resources(:teams, only: :show)
-  resources(:whiteboard_items, only: %i[create destroy])
+  scope(:api) do
+    resources(:action_items, only: %i[create destroy update])
+    resources(:teams, only: %i[index show])
+    resources(:whiteboard_items, only: %i[create destroy])
+  end
+
+  mount_ember_app(:frontend, to: '/')
 end

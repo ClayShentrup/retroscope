@@ -12,6 +12,8 @@ gem('puma') # Use Puma as the app server
 gem('active_model_serializers')
 gem('responders') # A set of Rails responders to dry up your application
 gem('ember-cli-rails') # Unify your EmberCLI and Rails Workflows
+gem('devise') # Flexible authentication solution for Rails with Warden.
+gem('simple_token_authentication')
 
 group :development do
   gem('listen')

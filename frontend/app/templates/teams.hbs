@@ -1,0 +1,8 @@
+<ul class="list-group">
+  {{#each model as |team| }}
+    <li class="list-group-item">
+      {{team.name}}
+      {{#link-to 'active-meeting' team.id }}Active Meeting{{/link-to}}
+    </li>
+  {{/each}}
+</ul>

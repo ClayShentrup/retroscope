@@ -1,8 +1,12 @@
-class TeamsController < ApplicationController
+class TeamsController < ApiController
+  def index
+    render(json: Team.all)
+  end
+
   def show
     render(
       json: Team.find(params.require(:id)),
-      include: params.fetch(:include)
+      include: params.require(:include)
     )
   end
 end

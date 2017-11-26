@@ -13,6 +13,7 @@ export default Controller.extend({
       ).save()
       this.set('newHappyWhiteboardItem', '')
     },
+
     createMehWhiteboardItem(team) {
       this.store.createRecord(
         'whiteboard_item',
@@ -24,6 +25,7 @@ export default Controller.extend({
       ).save()
       this.set('newMehWhiteboardItem', '')
     },
+
     createSadWhiteboardItem(team) {
       this.store.createRecord(
         'whiteboard_item',
@@ -35,5 +37,16 @@ export default Controller.extend({
       ).save()
       this.set('newSadWhiteboardItem', '')
     },
+
+    createActionItem(team) {
+      this.store.createRecord(
+        'action_item',
+        {
+          meeting: team,
+          content: this.get('newActionItem'),
+        }
+      ).save()
+      this.set('newActionItem', '')
+    }
   },
 });
