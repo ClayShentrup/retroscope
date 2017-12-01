@@ -1,4 +1,5 @@
 source('https://rubygems.org')
+ruby('2.4.2')
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -18,6 +19,3 @@ gem('simple_token_authentication')
 group :development do
   gem('listen')
 end
-
-require('pry-rails')
-require('pry-byebug')

@@ -5,8 +5,7 @@ class WhiteboardItemsController < ApiController
   end
 
   def destroy
-    whiteboard_item = WhiteboardItem.destroy(params.require(:id))
-    respond_with(whiteboard_item)
+    WhiteboardItem.destroy(params.require(:id))
   end
 
   def index

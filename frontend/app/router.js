@@ -3,9 +3,11 @@ import config from './config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
+
   redirect: function () {
     this.transitionTo('teams');
   },
+
   rootURL: config.rootURL,
 });
 

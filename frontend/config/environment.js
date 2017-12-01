@@ -58,11 +58,10 @@ module.exports = function(environment) {
     option: 'value'
   }
 
-  // ENV['ember-simple-auth'] = {
-  //   routeAfterAuthentication: 'teams',
-  //   routeIfAlreadyAuthenticated: 'teams',
-  // }
-
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: '/teams',
+    routeIfAlreadyAuthenticated: '/teams',
+  }
 
   return ENV;
 };

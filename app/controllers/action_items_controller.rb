@@ -13,7 +13,7 @@ class ActionItemsController < ApiController
 
   def destroy
     @action_item.destroy
-    respond_with(action_item)
+    respond_with(@action_item)
   end
 
   def index
