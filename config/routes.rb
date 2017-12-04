@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
 
     resources(:action_items, only: %i[create destroy update])
-    resources(:whiteboard_items, only: %i[create destroy])
+    resources(:whiteboard_items, only: %i[create destroy update])
     resources(:archived_meetings, only: :show)
   end
 

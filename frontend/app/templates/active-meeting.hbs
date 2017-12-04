@@ -1,49 +1,36 @@
 <h2>Team: {{model.name}}</h2>
 
-<button {{ action 'archiveActiveMeeting' model }}>Archive</button>
+<button {{ action 'archiveActiveMeeting' model }} class="btn">
+  Archive
+</button>
 
 <div class="whiteboard row">
-  <div class="happy col">
-    <p class="text-center"><h2>:)</h2></p>
+  {{
+    whiteboard-column
+    createWhiteboardItem=(action "createWhiteboardItem")
+    deleteWhiteboardItem=(action "deleteWhiteboardItem")
+    emotion="happy"
+    team=model
+    placeholder="I'm glad that..."
+  }}
 
-    <form {{ action 'createHappyWhiteboardItem' model on="submit"}}>
-      {{input value=newHappyWhiteboardItem type="text" placeholder="I'm glad that..." }}
-    </form>
+  {{
+    whiteboard-column
+    createWhiteboardItem=(action "createWhiteboardItem")
+    deleteWhiteboardItem=(action "deleteWhiteboardItem")
+    emotion="meh"
+    team=model
+    placeholder="I'm wondering about..."
+  }}
 
-    <ul class="list-inline">
-      {{#each model.happyActiveWhiteboardItems as |whiteboardItem| }}
-        {{whiteboard-item item=whiteboardItem }}
-      {{/each}}
-    </ul>
-  </div>
-
-  <div class="meh col">
-    <p class="text-center"><h2>:|</h2></p>
-
-    <form {{ action 'createMehWhiteboardItem' model on="submit"}}>
-      {{input value=newMehWhiteboardItem type="text" placeholder="I'm wondering about..."}}
-    </form>
-
-    <ul class="list-inline">
-      {{#each model.mehActiveWhiteboardItems as |whiteboardItem| }}
-        {{whiteboard-item item=whiteboardItem }}
-      {{/each}}
-    </ul>
-  </div>
-
-  <div class="sad col">
-    <p class="text-center"><h2>:(</h2></p>
-
-    <form {{ action 'createSadWhiteboardItem' model on="submit"}}>
-      {{input value=newSadWhiteboardItem type="text" placeholder="It wasn't so great that..."}}
-    </form>
-
-    <ul class="list-inline">
-      {{#each model.sadActiveWhiteboardItems as |whiteboardItem| }}
-        {{whiteboard-item item=whiteboardItem }}
-      {{/each}}
-    </ul>
-  </div>
+  {{
+    whiteboard-column
+    createWhiteboardItem=(action "createWhiteboardItem")
+    deleteWhiteboardItem=(action "deleteWhiteboardItem")
+    emotion="sad"
+    team=model
+    placeholder="It wasn't so great that..."
+  }}
 </div>
 
 <div class="offset-4 col-4">
@@ -53,7 +40,13 @@
     {{/each}}
   </ul>
 
-  <form {{ action 'createActionItem' model on="submit"}}>
-    {{input value=newActionItem type="text" placeholder="Add an action item"}}
+  <form {{ action 'createActionItem' model on="submit"}} class="card m-2">
+    {{
+      input
+      class="p-1"
+      placeholder="Add an action item"
+      type="text"
+      value=newActionItem
+    }}
   </form>
 </div>

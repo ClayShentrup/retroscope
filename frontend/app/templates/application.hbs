@@ -12,7 +12,12 @@
           {{ddm.divider}}
 
           {{#ddm.item}}
-             <a href="#" {{action 'invalidateSession'}}>Logout</a>
+            <button
+              {{action 'invalidateSession'}}
+              class="btn dropdown-item"
+              type="button">
+              Logout
+            </button>
           {{/ddm.item}}
         {{/dd.menu}}
       {{/bs-dropdown}}

@@ -5,19 +5,18 @@ export default Controller.extend({
 
   actions: {
     archiveActiveMeeting(team) {
-      team.archiveActiveMeeting()
+      team.archiveActiveMeeting();
     },
 
-    createHappyWhiteboardItem(team) {
+    createWhiteboardItem(content, emotion) {
       this.store.createRecord(
         'whiteboard_item',
         {
-          meeting: team,
-          content: this.get('newHappyWhiteboardItem'),
-          emotion: 'happy',
+          content: content,
+          emotion: emotion,
+          meeting: this.get('model'),
         },
-      ).save()
-      this.set('newHappyWhiteboardItem', '')
+      ).save();
     },
 
     createMehWhiteboardItem(team) {
@@ -28,8 +27,8 @@ export default Controller.extend({
           content: this.get('newMehWhiteboardItem'),
           emotion: 'meh',
         },
-      ).save()
-      this.set('newMehWhiteboardItem', '')
+      ).save();
+      this.set('newMehWhiteboardItem', '');
     },
 
     createSadWhiteboardItem(team) {
@@ -40,8 +39,8 @@ export default Controller.extend({
           content: this.get('newSadWhiteboardItem'),
           emotion: 'sad',
         },
-      ).save()
-      this.set('newSadWhiteboardItem', '')
+      ).save();
+      this.set('newSadWhiteboardItem', '');
     },
 
     createActionItem(team) {
@@ -51,8 +50,18 @@ export default Controller.extend({
           meeting: team,
           content: this.get('newActionItem'),
         }
-      ).save()
-      this.set('newActionItem', '')
-    }
+      ).save();
+      this.set('newActionItem', '');
+    },
+
+    deleteWhiteboardItem: function(item, event) {
+      let team = this.get('model');
+
+      item.destroyRecord().then(() => {
+       item.unloadRecord();
+       team.get('whiteboardItems').removeObject(item);
+      })
+      event.stopPropagation();
+    },
   },
 });

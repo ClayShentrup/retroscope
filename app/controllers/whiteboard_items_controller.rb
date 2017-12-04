@@ -17,6 +17,12 @@ class WhiteboardItemsController < ApiController
     respond_with(WhiteboardItem.find(params.require(:id)))
   end
 
+  def update
+    whiteboard_item = WhiteboardItem.find(params.require(:id))
+    whiteboard_item.update(whiteboard_item_params)
+    respond_with(whiteboard_item)
+  end
+
   private
 
   def whiteboard_item_params

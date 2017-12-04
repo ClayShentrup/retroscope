@@ -1,5 +1,35 @@
 <li class="card list-inline-item m-2">
-  <div class="card-body">
-    {{item.content}} <a {{action 'deleteWhiteboardItem' item}} href>X</a>
+  <div onclick={{action "edit"}} class="card-body d-flex flex-row">
+    {{#if isEditing}}
+      <form
+        class="w-100"
+        onsubmit={{action "update"}}>
+        {{
+          textarea
+          class="p-2 w-100"
+          placeholder="Add an action item"
+          rows="1"
+          type="text"
+          value=whiteboardItem.content
+        }}
+
+        <div class="d-flex flex-row font-weight-bold ">
+          <button
+            class="btn delete text-danger"
+            onclick={{action deleteWhiteboardItem}}
+            type="button">
+            <span class="entypo trash" />
+            Delete
+          </button>
+          <button class="btn btn-info ml-auto" onclick={{action "update"}}
+            type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    {{else}}
+      <span>{{whiteboardItem.content}}</span>
+      <button class="btn entypo ml-auto pencil" />
+    {{/if}}
   </div>
 </li>

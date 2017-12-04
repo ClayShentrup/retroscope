@@ -1,0 +1,23 @@
+<p class="text-center"><h2>:)</h2></p>
+
+<form
+  class="card m-2"
+  onsubmit={{action "createWhiteboardItem"}}>
+  {{
+    input
+    class="p-1"
+    placeholder=placeholder
+    type="text"
+    value=newWhiteboardItemContent
+  }}
+</form>
+
+<ul class="list-inline">
+  {{#each (get team (concat emotion "ActiveWhiteboardItems")) as |whiteboardItem| }}
+    {{whiteboard-item
+      deleteWhiteboardItem=(action deleteWhiteboardItem whiteboardItem)
+      whiteboardItem=whiteboardItem
+    }}
+  {{/each}}
+</ul>
+
