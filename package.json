@@ -1,4 +1,5 @@
 {
+  "cacheDirectories": ["frontend/node_modules","node_modules"],
   "name": "retroscope",
   "private": true,
   "dependencies": {}

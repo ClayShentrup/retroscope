@@ -66,6 +66,7 @@ GEM
       railties (>= 3.2)
     ember-cli-rails-assets (0.6.2)
     erubi (1.7.0)
+    execjs (2.7.0)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -139,8 +140,13 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.20.0)
     thread_safe (0.3.6)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
+    uglifier (4.0.1)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -160,6 +166,8 @@ DEPENDENCIES
   rails
   responders
   simple_token_authentication
+  turbolinks
+  uglifier
 
 RUBY VERSION
    ruby 2.4.2p198

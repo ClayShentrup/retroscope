@@ -19,30 +19,6 @@ export default Controller.extend({
       ).save();
     },
 
-    createMehWhiteboardItem(team) {
-      this.store.createRecord(
-        'whiteboard_item',
-        {
-          meeting: team,
-          content: this.get('newMehWhiteboardItem'),
-          emotion: 'meh',
-        },
-      ).save();
-      this.set('newMehWhiteboardItem', '');
-    },
-
-    createSadWhiteboardItem(team) {
-      this.store.createRecord(
-        'whiteboard_item',
-        {
-          meeting: team,
-          content: this.get('newSadWhiteboardItem'),
-          emotion: 'sad',
-        },
-      ).save();
-      this.set('newSadWhiteboardItem', '');
-    },
-
     createActionItem(team) {
       this.store.createRecord(
         'action_item',

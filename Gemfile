@@ -15,6 +15,8 @@ gem('responders') # A set of Rails responders to dry up your application
 gem('ember-cli-rails') # Unify your EmberCLI and Rails Workflows
 gem('devise') # Flexible authentication solution for Rails with Warden.
 gem('simple_token_authentication')
+gem('turbolinks')
+gem('uglifier')
 
 group :development do
   gem('listen')
