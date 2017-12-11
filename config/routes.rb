@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   )
 
   scope(:api) do
+    resources(:action_items, only: %i[create destroy update])
+    resources(:archived_meetings, only: :show)
+
     resources(:teams, only: %i[index show]) do
       put(:archive_active_meeting, on: :member)
     end
 
-    resources(:action_items, only: %i[create destroy update])
+    resources(:users, only: :show)
+
     resources(:whiteboard_items, only: %i[create destroy update])
-    resources(:archived_meetings, only: :show)
   end
 
   mount_ember_app(:frontend, to: '/')

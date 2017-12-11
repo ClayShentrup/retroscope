@@ -1,5 +1,5 @@
 class ActionItem < ApplicationRecord
-  belongs_to(:author, class_name: 'User')
+  belongs_to(:creator, class_name: 'User')
   belongs_to(:meeting, polymorphic: true)
 
   validates(:content, presence: true)

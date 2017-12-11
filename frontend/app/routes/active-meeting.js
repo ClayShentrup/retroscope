@@ -6,7 +6,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return this.store.findRecord(
       'team',
       params.team_id,
-      { include: 'action_items,whiteboard_items,' },
+      { include: 'action_items,whiteboard_items' },
     );
   },
 });

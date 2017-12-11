@@ -1,4 +1,8 @@
-<li class="card list-inline-item m-2">
+<li class="card list-inline-item m-2"
+  data-toggle="tooltip"
+  data-placement="top"
+  title={{ whiteboardItem.userEmail }}
+>
   <div onclick={{action "edit"}} class="card-body d-flex flex-row">
     {{#if isEditing}}
       <form

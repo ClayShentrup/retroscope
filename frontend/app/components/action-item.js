@@ -11,5 +11,9 @@ export default Component.extend({
       actionItem.toggleProperty('done');
       actionItem.save();
     },
-  }
+  },
+
+  createdBy: Ember.computed('actionItem.creatorEmail', function(){
+    return `Created by ${this.get('actionItem.creatorEmail')}`;
+  }),
 });

@@ -14,6 +14,11 @@ class User < ApplicationRecord
     :validatable,
   )
 
-  has_many(:action_items, foreign_key: :author_id, inverse_of: :author)
+  has_many(
+    :created_action_items,
+    class_name: 'ActionItem',
+    foreign_key: :creator_id,
+    inverse_of: :creator,
+  )
   has_many(:whiteboard_items)
 end

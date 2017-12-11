@@ -1,5 +1,9 @@
-<div class="card-body">
+<div class="card-body"
+  data-toggle="tooltip"
+  data-placement="top"
+  title={{ createdBy }}
+>
+  {{ log actionItem.creator.createdActionItems.length }}
   {{input type="checkbox" name="done" checked=actionItem.done change=(action "toggleDone")}}
   {{actionItem.content}}
 </div>
-
