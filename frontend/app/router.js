@@ -12,14 +12,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('login')
+  this.route('active-meeting', { path: 'teams/:team_id/active-meeting' });
 
-  this.route(
-    'active-meeting',
-    { path: 'teams/:team_id/active-meeting' }
-  )
+  this.route('my-credentials');
 
-  this.route('teams')
+  this.route('login');
+
+  this.route('teams');
 });
 
 export default Router;

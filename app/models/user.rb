@@ -8,6 +8,7 @@ class User < ApplicationRecord
     :database_authenticatable,
     :lockable,
     :recoverable,
+    :registerable,
     :trackable,
     :timeoutable ,
     :validatable,

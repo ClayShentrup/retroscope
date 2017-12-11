@@ -12,6 +12,12 @@
           {{ddm.divider}}
 
           {{#ddm.item}}
+            {{#ddm.link-to "my-credentials"}}My Credentials{{/ddm.link-to}}
+          {{/ddm.item}}
+
+          {{ddm.divider}}
+
+          {{#ddm.item}}
             <button
               {{action 'invalidateSession'}}
               class="btn dropdown-item"
