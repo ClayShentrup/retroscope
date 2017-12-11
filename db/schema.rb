@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127004728) do
+ActiveRecord::Schema.define(version: 20171211050100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,10 @@ ActiveRecord::Schema.define(version: 20171127004728) do
     t.integer "emotion", null: false
     t.string "meeting_type"
     t.bigint "meeting_id"
+    t.string "user_type"
+    t.bigint "user_id"
     t.index ["meeting_type", "meeting_id"], name: "index_whiteboard_items_on_meeting_type_and_meeting_id"
+    t.index ["user_type", "user_id"], name: "index_whiteboard_items_on_user_type_and_user_id"
   end
 
   add_foreign_key "archived_meetings", "teams"

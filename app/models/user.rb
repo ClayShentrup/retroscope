@@ -13,4 +13,6 @@ class User < ApplicationRecord
     :timeoutable ,
     :validatable,
   )
+
+  has_many(:whiteboard_items)
 end

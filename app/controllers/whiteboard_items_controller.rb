@@ -30,9 +30,11 @@ class WhiteboardItemsController < ApiController
       params,
       only: %i[content emotion meeting],
       polymorphic: %i[meeting],
-    ).tap do |params|
-      # https://github.com/rails-api/active_model_serializers/pull/1615/files#r152492860
-      params[:meeting_type] = params.fetch(:meeting_type).underscore.classify
-    end
+    )
+      .merge(user: current_user)
+      .tap do |params|
+        # https://github.com/rails-api/active_model_serializers/pull/1615/files#r152492860
+        params[:meeting_type] = params.fetch(:meeting_type).underscore.classify
+      end
   end
 end
