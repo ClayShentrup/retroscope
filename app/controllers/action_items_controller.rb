@@ -37,9 +37,10 @@ class ActionItemsController < ApiController
       only: %i[content meeting done],
       polymorphic: %i[meeting],
     )
-      .merge(author: current_user)
+      .merge(creator: current_user)
       .tap do |params|
         # https://github.com/rails-api/active_model_serializers/pull/1615/files#r152492860
+        next unless params.key?(:meeting_type)
         params[:meeting_type] = params.fetch(:meeting_type).underscore.classify
       end
   end

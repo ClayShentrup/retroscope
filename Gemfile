@@ -21,3 +21,10 @@ gem('uglifier')
 group :development do
   gem('listen')
 end
+
+
+group :development, :test do
+  gem('rspec-rails')
+  gem('shoulda-matchers')
+  gem('factory_bot_rails')
+end
