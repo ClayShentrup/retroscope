@@ -1,36 +1,40 @@
 <div class="container-fluid">
   {{#if session.isAuthenticated }}
-    <div class="offset-11 col-1">
-      {{#bs-dropdown as |dd|}}
-        {{#dd.toggle}}Menu <span class="caret"></span>{{/dd.toggle}}
+    <div class="row">
+      <div class="col-2">
+        {{#bs-dropdown class=".dropdown-menu-right" as |dd|}}
+          {{#dd.toggle}}Menu <span class="caret"></span>{{/dd.toggle}}
 
-        {{#dd.menu as |ddm|}}
-          {{#ddm.item}}
-            {{#ddm.link-to "teams"}}All Teams{{/ddm.link-to}}
-          {{/ddm.item}}
+          {{#dd.menu as |ddm|}}
+            {{#ddm.item}}
+              {{#ddm.link-to "teams"}}All Teams{{/ddm.link-to}}
+            {{/ddm.item}}
 
-          {{ddm.divider}}
+            {{ddm.divider}}
 
-          {{#ddm.item}}
-            {{#ddm.link-to "my-credentials"}}My Credentials{{/ddm.link-to}}
-          {{/ddm.item}}
+            {{#ddm.item}}
+              {{#ddm.link-to "my-credentials"}}My Credentials{{/ddm.link-to}}
+            {{/ddm.item}}
 
-          {{ddm.divider}}
+            {{ddm.divider}}
 
-          {{#ddm.item}}
-            <button
-              {{action 'invalidateSession'}}
-              class="btn dropdown-item"
-              type="button">
-              Logout
-            </button>
-          {{/ddm.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
+            {{#ddm.item}}
+              <button
+                {{action 'invalidateSession'}}
+                class="btn dropdown-item"
+                type="button">
+                Logout
+              </button>
+            {{/ddm.item}}
+          {{/dd.menu}}
+        {{/bs-dropdown}}
+      </div>
+
+      <div class="offset-3 col-4 justify-content-center">
+        <h3>RETROSCOPE</h3>
+      </div>
     </div>
   {{/if}}
-
-  <h1>Retroscope</h1>
 
   {{outlet}}
 </div>

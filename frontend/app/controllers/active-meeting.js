@@ -6,6 +6,7 @@ export default Controller.extend({
   actions: {
     archiveActiveMeeting(team) {
       team.archiveActiveMeeting();
+      this.set('archiveModalOpen', false);
     },
 
     createWhiteboardItem(content, emotion) {

@@ -1,4 +1,31 @@
-<h2>Team: {{model.name}}</h2>
+
+{{#bs-modal open=archiveModalOpen
+  onHide=(action (mut archiveModalOpen) false)
+  onSubmit=(action "archiveActiveMeeting" model) as |modal|}}
+  {{#modal.body}}
+    Are you sure you want to archive this meeting?
+  {{/modal.body}}
+
+  {{#modal.footer as |footer|}}
+    {{#bs-button onClick=(action modal.close) type="danger"}}
+      Cancel
+    {{/bs-button}}
+    {{#bs-button onClick=(action modal.submit) type="success"}}
+      Archive
+    {{/bs-button}}
+   {{/modal.footer}}
+{{/bs-modal}}
+
+<div class="row">
+  <div class="col">
+    <h3>Team: {{model.name}}</h3>
+
+    {{#bs-button class="mb-1"
+      onClick=(action (mut archiveModalOpen) true) type="primary"}}
+      Archive this Meeting
+    {{/bs-button}}
+  </div>
+</div>
 
 <div class="whiteboard row">
   {{

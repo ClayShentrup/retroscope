@@ -9,4 +9,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
       { include: 'action_items,whiteboard_items' },
     );
   },
+
+  titleToken: (model) => `Active Meeting for ${model.get('name')}`
 });
