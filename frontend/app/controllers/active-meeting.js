@@ -5,7 +5,9 @@ export default Controller.extend({
 
   actions: {
     archiveActiveMeeting(team) {
-      team.archiveActiveMeeting();
+      team.archiveActiveMeeting().then(() => {
+        this.replaceRoute('active-meeting', this.model.id);
+      });
       this.set('archiveModalOpen', false);
     },
 
