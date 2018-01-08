@@ -1,5 +1,5 @@
 <li class="card list-inline-item m-2">
-  <div onclick={{action "edit"}} class="card-body d-flex flex-row">
+  <div {{action "edit"}} class="card-body d-flex flex-row">
     {{#if isEditing}}
       <form
         class="w-100"
@@ -7,7 +7,7 @@
         {{
           textarea
           class="p-2 w-100"
-          placeholder="Add an action item"
+          placeholder="Whiteboard item description"
           rows="1"
           type="text"
           value=whiteboardItem.content

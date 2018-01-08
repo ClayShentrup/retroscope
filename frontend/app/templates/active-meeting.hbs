@@ -63,7 +63,11 @@
   <div class="col-sm-12 col-md-6 col-lg-4 p-0">
     <ul class="list-inline">
       {{#each model.actionItems as |actionItem| }}
-        {{ action-item actionItem=actionItem }}
+        {{
+          action-item
+          actionItem=actionItem
+          deleteActionItem=(action "deleteActionItem" actionItem)
+        }}
       {{/each}}
     </ul>
 

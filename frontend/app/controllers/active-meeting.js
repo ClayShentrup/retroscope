@@ -42,5 +42,15 @@ export default Controller.extend({
       })
       event.stopPropagation();
     },
+
+    deleteActionItem: function(item, event) {
+      let team = this.get('model');
+
+      item.destroyRecord().then(() => {
+       item.unloadRecord();
+       team.get('actionItems').removeObject(item);
+      })
+      event.stopPropagation();
+    },
   },
 });

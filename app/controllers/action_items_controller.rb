@@ -25,6 +25,10 @@ class ActionItemsController < ApiController
     respond_with(@action_item)
   end
 
+  def destroy
+    ActionItem.destroy(params.require(:id))
+  end
+
   private
 
   def load_action_item

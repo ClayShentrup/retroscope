@@ -1,8 +1,38 @@
 <div class="card-body"
   data-toggle="tooltip"
   data-placement="top"
+  {{ action "edit"}}
   title={{ createdBy }}
 >
-  {{input type="checkbox" name="done" checked=actionItem.done change=(action "toggleDone")}}
-  {{actionItem.content}}
+  {{#if isEditing}}
+    <form
+    class="w-100"
+    onsubmit={{action "update"}}>
+    {{
+      textarea
+      class="p-2 w-100"
+      placeholder="Action item description"
+      rows="1"
+      type="text"
+      value=actionItem.content
+    }}
+
+    <div class="d-flex flex-row font-weight-bold ">
+      <button
+        class="btn delete text-danger"
+        {{action deleteActionItem}}
+        type="button">
+        <span class="entypo trash" />
+        Delete
+      </button>
+      <button class="btn btn-info ml-auto" onclick={{action "update"}}
+        type="submit">
+        Save
+      </button>
+    </div>
+    </form>
+  {{else}}
+    {{input type="checkbox" name="done" checked=actionItem.done     change=(action "toggleDone")}}
+    {{actionItem.content}}
+  {{/if}}
 </div>
