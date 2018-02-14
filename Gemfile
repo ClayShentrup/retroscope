@@ -24,6 +24,7 @@ end
 
 
 group :development, :test do
+  gem('pry-byebug')
   gem('rspec-rails')
   gem('shoulda-matchers')
   gem('factory_bot_rails')
